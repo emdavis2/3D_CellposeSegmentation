@@ -1,7 +1,7 @@
 # 3D_CellposeSegmentation
 A python script to loop through a directory and segment 3D images
 
-This python script uses [cellpose](https://cellpose.readthedocs.io/en/latest/) to create binary masks for single time frame z stack tiffs for all tiff files in a specified folder. In this specific case we are segmenting cell membrane, but parameters for the model can be changed to segment other objects. Specifically, this script also applies denoising to the images before performing the segemntation.
+This python script uses [cellpose](https://cellpose.readthedocs.io/en/latest/) to create binary masks for single time frame z stack tiffs for all tiff files in a specified folder with the naming convention of `mask_{filename}.tif` for each z stack. In this specific case we are segmenting cell membrane, but parameters for the model can be changed to segment other objects. Specifically, this script also applies de-noising to the images before performing the segmentation.
 
 ## How to set up:
 Follow the instructions [here](https://github.com/MouseLand/cellpose/tree/main) to install cellpose. I recommend following option 1 (the installation with conda).
