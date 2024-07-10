@@ -16,7 +16,7 @@ if not os.path.exists(save_dir):
 model = denoise.CellposeDenoiseModel(model_type="cyto3", restore_type="denoise_cyto3")
 
 #loop through images in your directory (assumes each image is a z stack per time frame)
-for count,filename in enumerate(os.listdir(img_dir)):
+for filename in os.listdir(img_dir):
     if filename.endswith('.tif'):
         # read in image
         img = io.imread(os.path.join(img_dir, filename))
@@ -24,4 +24,4 @@ for count,filename in enumerate(os.listdir(img_dir)):
         #note: this line assumes that the first axis is the z axis
         masks, flows, styles, imgs_dn = model.eval(img, channels=[0,0], z_axis=0, diameter=60., cellprob_threshold=-5, do_3D=True)
 
-        io.imsave(os.path.join(save_dir, save_name + "_z{}.tif".format(count+1)), masks) 
+        io.imsave(os.path.join(save_dir, "mask_"+filename), masks)
